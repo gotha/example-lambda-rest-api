@@ -1,0 +1,19 @@
+# serverless.yml
+
+
+service: example-rest-api
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: api
+  region: eu-west-1
+
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
